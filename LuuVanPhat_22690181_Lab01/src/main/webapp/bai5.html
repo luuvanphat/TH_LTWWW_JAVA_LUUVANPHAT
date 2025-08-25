@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5 - Register Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2f3640;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #3b3b3b;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #f5f6fa;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #dcdde1;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #0097e6;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #00a8ff;
+        }
+        .required {
+            color: #e84118;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Register</h2>
+    <form method="post" action="bai5" name="registrationForm">
+        <div class="form-group">
+            <label for="name">Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username <span class="required">*</span></label>
+            <input type="text" id="username" name="username" placeholder="Choose a username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password <span class="required">*</span></label>
+            <input type="password" id="password" name="password" placeholder="Enter a password" required>
+        </div>
+
+        <div class="form-group">
+            <label for="facebook">Facebook</label>
+            <input type="text" id="facebook" name="facebook" placeholder="Enter your Facebook profile URL">
+        </div>
+
+        <div class="form-group">
+            <label for="shortBio">Short Bio</label>
+            <textarea id="shortBio" name="shortBio" placeholder="Share a little information about yourself"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+</body>
+</html>
