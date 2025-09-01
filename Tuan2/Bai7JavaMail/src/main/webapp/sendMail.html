@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Send Email Form</h2>
+<form method="post" action="sendMail" enctype="multipart/form-data">
+    To: <input type="text" name="to" size="50"/><br/>
+    Subject: <input type="text" name="subject" size="50"/><br/>
+    Message:<br/>
+    <textarea name="body" rows="10" cols="50"></textarea><br/>
+    Attachment: <input type="file" name="file"/><br/>
+    <input type="submit" value="Send"/>
+</form>
+</body>
+</html>
