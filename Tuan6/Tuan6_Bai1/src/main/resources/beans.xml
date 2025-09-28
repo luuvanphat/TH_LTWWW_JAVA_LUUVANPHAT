@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student1" class="iuh.fit.se.beans.xmlbased.bai1.Student1">
+        <property name="id" value="007"/>
+        <property name="name" value="Nguyen Van A"/>
+    </bean>
+
+    <bean id="classProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:class.properties</value>
+            </list> </property>
+    </bean>
+    <bean id="class1" class="iuh.fit.se.beans.xmlbased.bai2.Class_">
+        <property name="classId" value="DHKTPM18B"/>
+        <property name="className" value="Dai Hoc KTPM18B"/>
+    </bean>
+    <bean id="class2" class="iuh.fit.se.beans.xmlbased.bai2.Class_">
+        <property name="classId" value="DHKTPM17"/>
+        <property name="className" value="${className}"/>
+    </bean>
+    <bean id="student2" class="iuh.fit.se.beans.xmlbased.bai2.Student2">
+        <property name="id" value="002"/>
+        <property name="name" value="Nguyen Van A"/>
+        <property name="class_" ref="class1"/>
+    </bean>
+    <bean id="student3" class="iuh.fit.se.beans.xmlbased.bai2.Student2">
+        <constructor-arg name="id" value="003"/>
+        <constructor-arg name="name" value="Nguyen Van B"/>
+        <constructor-arg name="class_" ref="class1"/>
+    </bean>
+
+    <bean id="address1" class="iuh.fit.se.beans.xmlbased.bai3.Address">
+        <property name="street" value="Nguyen Van Bao"/>
+        <property name="city" value="HCM"/>
+        <property name="country" value="Viet Nam"/>
+    </bean>
+
+    <bean id="address2" class="iuh.fit.se.beans.xmlbased.bai3.Address">
+        <property name="street" value="Nguyen Thai Son"/>
+        <property name="city" value="HCM"/>
+        <property name="country" value="Viet Nam"/>
+    </bean>
+    <bean id="person" class="iuh.fit.se.beans.xmlbased.bai3.Person">
+        <property name="name" value="Nguyen Van A"/>
+        <property name="addresses">
+            <list>
+                <ref bean = "address1" />
+                <ref bean = "address1" />
+            </list>
+        </property>
+
+        <property name="emails">
+            <list>
+                <value>a1@gmail.com</value>
+                <value>a2@gmail.com</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="faculty" class="iuh.fit.se.beans.autowiring.Faculty">
+        <property name="id" value="FI"/>
+        <property name="name" value="Faculty of Information Technology"/>
+    </bean>
+    <bean id="dept1" class="iuh.fit.se.beans.autowiring.Department" autowire="no">
+        <property name="id" value="DP1"/>
+        <property name="name" value="Department 1"/>
+        <property name="faculty" ref="faculty"/>
+    </bean>
+    <bean id="dept2" class="iuh.fit.se.beans.autowiring.Department" autowire="byName">
+        <property name="id" value="DP2"/>
+        <property name="name" value="Department 2"/>
+    </bean>
+    <bean id="dept3" class="iuh.fit.se.beans.autowiring.Department" autowire="byType">
+        <property name="id" value="DP3"/>
+        <property name="name" value="Department 3"/>
+    </bean>
+    <bean id="dept4" class="iuh.fit.se.beans.autowiring.Department" autowire="constructor">
+        <property name="id" value="DP4"/>
+        <property name="name" value="Department 4"/>
+    </bean>
+</beans>

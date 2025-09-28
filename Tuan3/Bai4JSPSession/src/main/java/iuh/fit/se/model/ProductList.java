@@ -16,7 +16,11 @@ public class ProductList {
     }
 
     public static Product getById(String id) {
-        return products.stream().filter(p -> p.getId().equals(id)).findFirst().orElse(null);
+        return products
+                .stream()
+                .filter(p -> p.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 }
 
